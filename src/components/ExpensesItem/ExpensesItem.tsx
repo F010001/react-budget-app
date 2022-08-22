@@ -1,6 +1,11 @@
 import React from "react";
-import { StyledExpensesItem } from "./styles";
+import { Badge } from "../Badge/Badge";
+import { DeleteButton, StyledExpensesItem } from "./styles";
 
 export const ExpensesItem = () => {
-  return <StyledExpensesItem>Badge</StyledExpensesItem>;
+  return (
+    <StyledExpensesItem>
+      Farid <Badge /> <DeleteButton>X</DeleteButton>
+    </StyledExpensesItem>
+  );
 };
