@@ -1,11 +1,11 @@
 import React from "react";
-import { EditButton } from "../Header/styles";
+import { EditButton } from "./styles";
 import { StyledBudget } from "./styles";
 
 export const Budget = () => {
   return (
     <StyledBudget>
-      Budget: <EditButton>Edit</EditButton>
+      Budget: $3000 <EditButton>Edit</EditButton>
     </StyledBudget>
   );
 };
