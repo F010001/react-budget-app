@@ -4,6 +4,9 @@ import { Color } from "../../ui/Colors";
 export const StyledBudget = styled.div`
   width: 100%;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 10px;
   background-color: ${Color.Blue};
   font-family: Inter;
@@ -11,9 +14,8 @@ export const StyledBudget = styled.div`
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0em;
-  text-align: left;
   margin-bottom: 20px;
-  padding: 36px 0 40px 20px;
+  padding: 0 20px;
 `;
 
 export const EditButton = styled.button`
@@ -25,6 +27,5 @@ export const EditButton = styled.button`
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
-  margin-left: 65px;
   border: none;
 `;

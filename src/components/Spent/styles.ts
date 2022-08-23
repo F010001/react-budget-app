@@ -4,6 +4,8 @@ import { Color } from "../../ui/Colors";
 export const StyledSpent = styled.div`
   width: 100%;
   height: 100px;
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   background-color: ${Color.Pink};
   font-family: Inter;
@@ -13,5 +15,5 @@ export const StyledSpent = styled.div`
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 20px;
-  padding: 36px 0 40px 20px;
+  padding: 0 20px;
 `;
