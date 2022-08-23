@@ -2,7 +2,7 @@ import React, { FormEvent, useContext, useEffect, useState } from "react";
 import { AppContext } from "../../contexts/AppContext/AppContext";
 import { useInput } from "../../hooks/useInput";
 import { FormInput } from "../FormInput/FormInput";
-import { SubmitButton } from "../SubmitButton/styles";
+import { Button } from "../Button/Button";
 import { Title } from "../Title/Title";
 import { StyledForm } from "./styles";
 
@@ -15,8 +15,6 @@ export const Form = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
-    console.log("hi");
   };
 
   useEffect((): void => {
@@ -32,9 +30,9 @@ export const Form = () => {
       <Title>Add Expense</Title>
       <FormInput {...inputName} type="text" placeholder="enter name ..." />
       <FormInput {...inputCost} type="number" placeholder="enter cost ..." />
-      <SubmitButton type="submit" disabled={valueButton}>
+      <Button type="submit" isDisabled={valueButton}>
         Done
-      </SubmitButton>
+      </Button>
     </StyledForm>
   );
 };
