@@ -1,18 +1,14 @@
 import styled from "styled-components";
 import { Color } from "../../ui/Colors";
 
-type Props = {
-  budget: number;
-};
-
-export const StyledRemaining = styled.div<Props>`
+export const StyledRemaining = styled.div<{ overspending: boolean }>`
   width: 100%;
   height: 100px;
   display: flex;
   align-items: center;
   border-radius: 10px;
-  background-color: ${(props) =>
-    props.budget - 100 > 0 ? Color.Teal : Color.Red};
+  background-color: ${({ overspending }) =>
+    overspending ? Color.Teal : Color.Red};
   font-family: Inter;
   font-size: 20px;
   font-weight: 500;

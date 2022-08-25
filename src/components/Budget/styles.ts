@@ -28,4 +28,5 @@ export const EditButton = styled.button`
   letter-spacing: 0em;
   text-align: left;
   border: none;
+  width: 85px;
 `;

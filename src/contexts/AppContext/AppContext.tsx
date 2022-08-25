@@ -1,19 +1,24 @@
 import { createContext, FC, ReactNode, useState } from "react";
 
+interface IInfo {
+  newObj: any;
+}
+
 interface IAppContext {
-  name: string;
-  cost: number;
-  setExpense: (name: string, cost: number) => void;
+  data: IInfo[];
+  setExpense: (name: string, cost: number, id: number) => void;
 }
 
 export const AppContext = createContext({} as IAppContext);
 
 const useAppContext = () => {
   const [expenseValue, setExpenseValue] = useState<IAppContext>({
-    name: "",
-    cost: 0,
-    setExpense: (newName, newCost) =>
-      setExpenseValue((ctx) => ({ ...ctx, name: newName, cost: newCost })),
+    data: [],
+    setExpense: (newObj) =>
+      setExpenseValue((ctx) => ({
+        ...ctx,
+        newObj,
+      })),
   });
 
   return expenseValue;

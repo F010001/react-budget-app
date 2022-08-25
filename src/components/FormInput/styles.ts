@@ -28,6 +28,5 @@ export const StyledInput = styled.input`
     line-height: 19px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 15px 139px 15px 20px;
   }
 `;

@@ -4,10 +4,12 @@ import { StyledRemaining } from "./styles";
 
 export const Remaining = () => {
   const { budget } = useContext(BudgetContext);
+
+  const overspending = budget - 100 > 0;
   return (
-    <StyledRemaining budget={budget}>
-      {budget - 100 > 0
-        ? `Remaining: ${budget}`
+    <StyledRemaining overspending={overspending}>
+      {overspending
+        ? `Remaining: ${budget - 100} `
         : ` Overspending by: ${budget - 100}`}
     </StyledRemaining>
   );
