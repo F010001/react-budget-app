@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
 import { StyledBadge } from "./styles";
 
 export const Badge = () => {
-  return <StyledBadge>Badge</StyledBadge>;
+  const { currency } = useContext(CurrencyContext);
+
+  return <StyledBadge>{currency}100</StyledBadge>;
 };

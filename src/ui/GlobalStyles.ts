@@ -20,8 +20,8 @@ dd {
   margin: 0;
 }
 
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
 }
 

@@ -1,19 +1,22 @@
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
-import { AppContextProvider } from "./contexts/AppContext/AppContext";
 import { BudgetContextProvider } from "./contexts/BudgetContext/BudgetContext";
 import { GlobalStyles } from "./ui/GlobalStyles";
+import { ExpensesContextProvider } from "./contexts/ExpensesContext/ExpensesContext";
+import { CurrencyContextProvider } from "./contexts/CurrencyContext/CurrencyContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <>
-    <BudgetContextProvider>
-      <AppContextProvider>
-        <GlobalStyles />
-        <App />
-      </AppContextProvider>
-    </BudgetContextProvider>
+    <CurrencyContextProvider>
+      <BudgetContextProvider>
+        <ExpensesContextProvider>
+          <GlobalStyles />
+          <App />
+        </ExpensesContextProvider>
+      </BudgetContextProvider>
+    </CurrencyContextProvider>
   </>
 );

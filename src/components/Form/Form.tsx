@@ -5,7 +5,7 @@ import { StyledForm } from "./styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { CostInput } from "../CostInput/CostInput";
 import { useContext } from "react";
-import { AppContext } from "../../contexts/AppContext/AppContext";
+import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
 
 type SubmitValue = {
   name: string;
@@ -13,14 +13,13 @@ type SubmitValue = {
 };
 
 export const Form = () => {
-  const { data, setData } = useContext(AppContext);
+  const { data, setData } = useContext(ExpensesContext);
 
   const { handleSubmit, control } = useForm<SubmitValue>();
 
   const onSubmit: SubmitHandler<SubmitValue> = (obj: SubmitValue) => {
-    // setData(obj);
-    console.log(obj);
-    // console.log(data);
+    setData(obj);
+    console.log(data);
   };
 
   return (

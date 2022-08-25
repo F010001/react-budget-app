@@ -5,7 +5,7 @@ import { DeleteButton, StyledExpensesItem } from "./styles";
 export const ExpensesItem = () => {
   return (
     <StyledExpensesItem>
-      Farid <Badge /> <DeleteButton>X</DeleteButton>
+      shoping <Badge /> <DeleteButton></DeleteButton>
     </StyledExpensesItem>
   );
 };
