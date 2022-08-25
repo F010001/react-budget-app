@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Color } from "../../ui/Colors";
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   max-width: 100%;
   height: 50px;
   &::-webkit-outer-spin-button,

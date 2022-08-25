@@ -9,11 +9,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <>
-    <AppContextProvider>
-      <BudgetContextProvider>
+    <BudgetContextProvider>
+      <AppContextProvider>
         <GlobalStyles />
         <App />
-      </BudgetContextProvider>
-    </AppContextProvider>
+      </AppContextProvider>
+    </BudgetContextProvider>
   </>
 );

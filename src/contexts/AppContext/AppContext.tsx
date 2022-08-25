@@ -1,12 +1,13 @@
 import { createContext, FC, ReactNode, useState } from "react";
 
-interface IInfo {
-  newObj: any;
-}
+type InputValues = {
+  name: string;
+  cost: number;
+};
 
 interface IAppContext {
-  data: IInfo[];
-  setExpense: (name: string, cost: number, id: number) => void;
+  data: any;
+  setData: (obj: InputValues) => void;
 }
 
 export const AppContext = createContext({} as IAppContext);
@@ -14,11 +15,9 @@ export const AppContext = createContext({} as IAppContext);
 const useAppContext = () => {
   const [expenseValue, setExpenseValue] = useState<IAppContext>({
     data: [],
-    setExpense: (newObj) =>
-      setExpenseValue((ctx) => ({
-        ...ctx,
-        newObj,
-      })),
+    setData: (newObj: InputValues) => {
+      setExpenseValue((ctx) => ctx.data.push(newObj));
+    },
   });
 
   return expenseValue;
