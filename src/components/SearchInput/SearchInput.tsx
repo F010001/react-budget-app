@@ -1,5 +1,12 @@
 import { Input } from "./styles";
 
-export const SearchInput = () => {
-  return <Input placeholder="search ..." />;
+export const SearchInput = ({ onChange, value }: any) => {
+  return (
+    <Input
+      placeholder="search ..."
+      type="search"
+      onChange={onChange}
+      value={value}
+    />
+  );
 };

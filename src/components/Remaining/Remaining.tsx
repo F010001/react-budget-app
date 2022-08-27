@@ -9,18 +9,16 @@ export const Remaining = () => {
   const { currency } = useContext(CurrencyContext);
   const { expenses } = useContext(ExpensesContext);
 
-  const totalSpending = expenses.map((expense: any) => {
-    return Object.values(expense)
-      .filter((value) => typeof value === "number")
-      .reduce((total: any, value: any) => total + value, 0);
-  });
+  const total = expenses
+    .map(({ cost }) => cost)
+    .reduce((acc: number, cost: number) => acc + +cost, 0);
 
-  const overspending = budget - 100 > 0;
+  const overspending = budget - total >= 0;
   return (
     <StyledRemaining $overspending={overspending}>
       {overspending
-        ? `Remaining: ${currency}${budget - 100} `
-        : ` Overspending by: ${currency}${budget - 100}`}
+        ? `Remaining: ${currency}${budget - total} `
+        : ` Overspending by: ${currency}${budget - total}`}
     </StyledRemaining>
   );
 };

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import Select, { SingleValue } from "react-select";
+import { IOption } from ".";
+import { Currency } from "../../config";
 import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
 
-export const options: any[] = [
-  { value: "$", label: "USD" },
-  { value: "€", label: "EUR" },
-  { value: "£", label: "GBP" },
+export const options: IOption[] = [
+  { value: Currency.USD, label: "USD" },
+  { value: Currency.EUR, label: "EUR" },
+  { value: Currency.GBP, label: "GBP" },
 ];
 
 export const CustomSelect = () => {
@@ -16,7 +18,7 @@ export const CustomSelect = () => {
       : options[0];
   };
 
-  const handleCurrency = (option: SingleValue<any>): void => {
+  const handleCurrency = (option: SingleValue<IOption>): void => {
     if (option) setCurrency(option.value);
   };
 
