@@ -1,15 +1,6 @@
 import { createContext, FC, ReactNode, useState } from "react";
-
-enum Currency {
-  USD = "$",
-  EUR = "€",
-  GBP = "£",
-}
-
-interface ICurrencyContext {
-  currency: Currency;
-  setCurrency: (currency: Currency) => void;
-}
+import { ICurrencyContext } from ".";
+import { Currency } from "../../config";
 
 export const CurrencyContext = createContext<ICurrencyContext>(
   {} as ICurrencyContext

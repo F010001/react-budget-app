@@ -3,7 +3,7 @@ import { BudgetContext } from "../../contexts/BudgetContext/BudgetContext";
 import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
 import { useInput } from "../../hooks/useInput";
 import { useToggle } from "../../hooks/useToggle";
-import { Input } from "../Input/Input";
+import { Input } from "./styles";
 import { EditButton } from "./styles";
 import { StyledBudget } from "./styles";
 

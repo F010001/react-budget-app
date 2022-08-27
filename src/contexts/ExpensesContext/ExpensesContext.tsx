@@ -1,22 +1,16 @@
 import { createContext, FC, ReactNode, useState } from "react";
-
-type InputValues = {
-  name: string;
-  cost: number;
-};
-
-interface IExpensesContext {
-  data: any;
-  setData: (obj: InputValues) => void;
-}
+import { IExpensesContext, Expenses } from ".";
 
 export const ExpensesContext = createContext({} as IExpensesContext);
 
 const useExpensesContext = () => {
   const [expenseValue, setExpenseValue] = useState<IExpensesContext>({
-    data: [],
-    setData: (newObj: InputValues) => {
-      setExpenseValue((ctx) => ctx);
+    expenses: [],
+    setExpenses: (newExpenses: Expenses) => {
+      setExpenseValue((ctx) => ({
+        ...ctx,
+        expenses: [...ctx.expenses, newExpenses],
+      }));
     },
   });
 

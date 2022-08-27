@@ -6,20 +6,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { CostInput } from "../CostInput/CostInput";
 import { useContext } from "react";
 import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
-
-type SubmitValue = {
-  name: string;
-  cost: number;
-};
+import { SubmitValue } from ".";
 
 export const Form = () => {
-  const { data, setData } = useContext(ExpensesContext);
+  const { setExpenses } = useContext(ExpensesContext);
 
   const { handleSubmit, control } = useForm<SubmitValue>();
 
-  const onSubmit: SubmitHandler<SubmitValue> = (obj: SubmitValue) => {
-    setData(obj);
-    console.log(data);
+  const onSubmit: SubmitHandler<SubmitValue> = (expenses: SubmitValue) => {
+    setExpenses(expenses);
   };
 
   return (

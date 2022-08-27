@@ -8,12 +8,8 @@ export const options: any[] = [
   { value: "£", label: "GBP" },
 ];
 
-interface IProps {
-  currency: any;
-  setCurrency: (value: any) => void;
-}
-
-export const CustomSelect = ({ currency, setCurrency }: IProps) => {
+export const CustomSelect = () => {
+  const { currency, setCurrency } = useContext(CurrencyContext);
   const getValue = () => {
     return currency
       ? options.find((option) => option.value === currency)
