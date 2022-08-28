@@ -17,8 +17,8 @@ export const Remaining = () => {
   return (
     <StyledRemaining $overspending={overspending}>
       {overspending
-        ? `Remaining: ${currency}${budget - total} `
-        : ` Overspending by: ${currency}${budget - total}`}
+        ? `Remaining: ${currency}${Math.abs(budget - total)} `
+        : ` Overspending by: ${currency}${Math.abs(budget - total)}`}
     </StyledRemaining>
   );
 };

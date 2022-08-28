@@ -13,6 +13,7 @@ export const StyledExpensesItem = styled.li`
   line-height: 19px;
   letter-spacing: 0em;
   color: ${Color.Black};
+  border-bottom: 2px solid ${Color.Violet};
 `;
 
 export const DeleteButton = styled.button`

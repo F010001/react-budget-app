@@ -27,12 +27,13 @@ export const Form = () => {
       <Input
         type="text"
         placeholder="enter name ..."
-        {...register("name", { maxLength: 15, required: true })}
+        maxLength={15}
+        {...register("name", { required: true })}
       />
       <Input
         type="number"
         placeholder="enter cost ..."
-        {...register("cost", { maxLength: 5, required: true })}
+        {...register("cost", { required: true })}
       />
       <Button type="submit">Done</Button>
     </StyledForm>

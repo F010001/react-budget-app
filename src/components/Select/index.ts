@@ -2,5 +2,5 @@ import { Currency } from "../../config";
 
 export interface IOption {
   value: Currency;
-  label: string;
+  label: "USD" | "EUR" | "GBP";
 }

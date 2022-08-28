@@ -9,9 +9,9 @@ export const Expenses = () => {
 
   return (
     <StyledExpenses>
-      <SearchInput onChange={search.onChange} />
       <Title>Expenses</Title>
-      <ExpensesList />
+      <SearchInput {...search} />
+      <ExpensesList searchWord={search.value} />
     </StyledExpenses>
   );
 };
