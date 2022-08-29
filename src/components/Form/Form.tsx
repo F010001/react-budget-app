@@ -1,6 +1,6 @@
 import { Button } from "../Button/Button";
 import { Title } from "../Title/Title";
-import { Input, StyledForm } from "./styles";
+import { AttentionMassage, Input, StyledForm } from "./styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useContext } from "react";
 import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
@@ -9,7 +9,12 @@ import { v4 as uuids4 } from "uuid";
 
 export const Form = () => {
   const { setExpenses } = useContext(ExpensesContext);
-  const { handleSubmit, reset, register } = useForm<SubmitValue>();
+  const {
+    handleSubmit,
+    reset,
+    register,
+    formState: { errors },
+  } = useForm<SubmitValue>();
 
   const onSubmit: SubmitHandler<SubmitValue> = (expense) => {
     const newExpense = {
@@ -27,14 +32,35 @@ export const Form = () => {
       <Input
         type="text"
         placeholder="enter name ..."
-        maxLength={15}
-        {...register("name", { required: true })}
+        {...register("name", {
+          required: "Name is required",
+          maxLength: {
+            value: 15,
+            message: "Name must be less than 15 characters long",
+          },
+          pattern: {
+            value: /[A-Za-z]/,
+            message: "Name must contain only letters",
+          },
+        })}
       />
+      {errors.name && (
+        <AttentionMassage>{errors.name.message}</AttentionMassage>
+      )}
       <Input
         type="number"
         placeholder="enter cost ..."
-        {...register("cost", { required: true })}
+        {...register("cost", {
+          required: "Cost is required",
+          maxLength: {
+            value: 5,
+            message: "Cost must contain only 5 number",
+          },
+        })}
       />
+      {errors.cost && (
+        <AttentionMassage>{errors.cost.message}</AttentionMassage>
+      )}
       <Button type="submit">Done</Button>
     </StyledForm>
   );

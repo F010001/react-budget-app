@@ -32,6 +32,10 @@ export const Input = styled.input`
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0em;
-    text-align: left;
   }
+`;
+
+export const AttentionMassage = styled.span`
+  color: ${Color.Red};
+  margin-bottom: 10px;
 `;

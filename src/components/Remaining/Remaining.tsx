@@ -13,12 +13,14 @@ export const Remaining = () => {
     .map(({ cost }) => cost)
     .reduce((acc: number, cost: number) => acc + +cost, 0);
 
-  const overspending = budget - total >= 0;
+  const overspending = +budget - total >= 0;
   return (
     <StyledRemaining $overspending={overspending}>
       {overspending
-        ? `Remaining: ${currency}${Math.abs(budget - total)} `
-        : ` Overspending by: ${currency}${Math.abs(budget - total)}`}
+        ? `Remaining: ${currency}${
+            total === 0 ? 0 : Math.abs(+budget - total)
+          } `
+        : ` Overspending by: ${currency}${Math.abs(+budget - total)}`}
     </StyledRemaining>
   );
 };

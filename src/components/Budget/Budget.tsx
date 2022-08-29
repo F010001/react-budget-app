@@ -3,29 +3,38 @@ import { BudgetContext } from "../../contexts/BudgetContext/BudgetContext";
 import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
 import { useInput } from "../../hooks/useInput";
 import { useToggle } from "../../hooks/useToggle";
-import { Input } from "./styles";
+import { Input, SaveButton } from "./styles";
 import { EditButton } from "./styles";
 import { StyledBudget } from "./styles";
 
 export const Budget = () => {
   const inputBudget = useInput();
-  const [isOpen, setIsOpen] = useToggle();
+  const [isEditMode, setIsEditMode] = useToggle(true);
   const { budget, setBudget } = useContext(BudgetContext);
   const { currency } = useContext(CurrencyContext);
 
-  const handleValue = () => {
+  const handleEditClick = () => {
+    setIsEditMode();
+  };
+
+  const handleSaveClick = () => {
     setBudget(+inputBudget.value);
-    setIsOpen();
+    setIsEditMode();
   };
 
   return (
     <StyledBudget>
-      {isOpen ? (
-        <Input {...inputBudget} type="number" placeholder="Enter  budget ..." />
-      ) : (
+      {isEditMode ? (
         `Budget: ${currency}${budget}`
+      ) : (
+        <Input {...inputBudget} type="number" placeholder="Enter  budget ..." />
       )}
-      <EditButton onClick={handleValue}>{isOpen ? "Save" : "Edit"}</EditButton>
+
+      {isEditMode ? (
+        <EditButton onClick={handleEditClick}>Edit</EditButton>
+      ) : (
+        <SaveButton onClick={handleSaveClick}>Save</SaveButton>
+      )}
     </StyledBudget>
   );
 };

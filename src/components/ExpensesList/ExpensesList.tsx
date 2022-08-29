@@ -1,24 +1,23 @@
-import { useContext } from "react";
 import { Expenses } from "../../contexts/ExpensesContext";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
-import { StyledExpensesList } from "./styles";
+import { SearchMessage, StyledExpensesList } from "./styles";
 
 interface IProps {
-  searchWord: string;
+  expenses: Expenses[];
 }
 
-export const ExpensesList = ({ searchWord }: IProps) => {
-  const { expenses } = useContext(ExpensesContext);
+export const ExpensesList = ({ expenses }: IProps) => {
   const expensesLength = expenses.length >= 3;
 
   return (
     <StyledExpensesList $expensesLength={expensesLength}>
-      {expenses
-        .filter((expense) => expense.name.includes(searchWord))
-        .map(({ name, cost, id }: Expenses) => {
+      {expenses.length === 0 ? (
+        <SearchMessage>Oooops🙈</SearchMessage>
+      ) : (
+        expenses.map(({ name, cost, id }: Expenses) => {
           return <ExpensesItem name={name} cost={cost} id={id} />;
-        })}
+        })
+      )}
     </StyledExpensesList>
   );
 };
