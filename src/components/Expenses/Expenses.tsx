@@ -28,7 +28,7 @@ export const ExpensesBlock = () => {
     <StyledExpenses>
       <Title>Expenses</Title>
       <SearchInput {...search} />
-      <ExpensesList expenses={effectValues} />
+      <ExpensesList searchExpenses={effectValues} />
     </StyledExpenses>
   );
 };

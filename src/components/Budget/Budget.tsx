@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BudgetContext } from "../../contexts/BudgetContext/BudgetContext";
 import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
 import { useInput } from "../../hooks/useInput";
@@ -9,6 +9,7 @@ import { StyledBudget } from "./styles";
 
 export const Budget = () => {
   const inputBudget = useInput();
+  const [value, setValue] = useState<any>();
   const [isEditMode, setIsEditMode] = useToggle(true);
   const { budget, setBudget } = useContext(BudgetContext);
   const { currency } = useContext(CurrencyContext);
@@ -19,6 +20,7 @@ export const Budget = () => {
 
   const handleSaveClick = () => {
     setBudget(+inputBudget.value);
+    setValue("");
     setIsEditMode();
   };
 
@@ -27,7 +29,12 @@ export const Budget = () => {
       {isEditMode ? (
         `Budget: ${currency}${budget}`
       ) : (
-        <Input {...inputBudget} type="number" placeholder="Enter  budget ..." />
+        <Input
+          onChange={inputBudget.onChange}
+          value={value}
+          type="number"
+          placeholder="Enter  budget ..."
+        />
       )}
 
       {isEditMode ? (
