@@ -1,5 +1,5 @@
 import { createContext, FC, ReactNode, useState } from "react";
-import { IExpensesContext, Expenses } from ".";
+import { IExpensesContext, IExpense } from "./types";
 
 export const ExpensesContext = createContext({} as IExpensesContext);
 
@@ -7,14 +7,14 @@ const useExpensesContext = () => {
   const [expenseValue, setExpenseValue] = useState<IExpensesContext>({
     expenses: [],
 
-    setExpenses: (newExpenses: Expenses) => {
+    setExpense: (newExpenses: IExpense) => {
       setExpenseValue((ctx) => ({
         ...ctx,
         expenses: [...ctx.expenses, newExpenses],
       }));
     },
 
-    deleteExpenses: (id: string) => {
+    deleteExpense: (id: string) => {
       setExpenseValue((ctx) => ({
         ...ctx,
         expenses: [...ctx.expenses].filter((expense) => expense.id !== id),

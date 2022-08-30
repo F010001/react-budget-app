@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
+import { GlobalStyles } from "./ui/GlobalStyles";
 import { App } from "./App";
 import { BudgetContextProvider } from "./contexts/BudgetContext/BudgetContext";
-import { GlobalStyles } from "./ui/GlobalStyles";
 import { ExpensesContextProvider } from "./contexts/ExpensesContext/ExpensesContext";
 import { CurrencyContextProvider } from "./contexts/CurrencyContext/CurrencyContext";
 

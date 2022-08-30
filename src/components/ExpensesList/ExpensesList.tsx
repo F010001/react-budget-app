@@ -1,23 +1,20 @@
-import { useContext } from "react";
-import { Expenses } from "../../contexts/ExpensesContext";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { IExpense } from "../../contexts/ExpensesContext/types";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
 import { SearchMessage, StyledExpensesList } from "./styles";
 
 interface IProps {
-  searchExpenses: Expenses[];
+  searchExpenses: IExpense[];
 }
 
 export const ExpensesList = ({ searchExpenses }: IProps) => {
-  const expensesLength = searchExpenses.length >= 3;
-  const { expenses } = useContext(ExpensesContext);
+  const isExpensesLength = searchExpenses.length >= 3;
 
   return (
-    <StyledExpensesList $expensesLength={expensesLength}>
-      {expenses.length === 0 ? (
+    <StyledExpensesList $isExpensesLength={isExpensesLength}>
+      {searchExpenses.length === 0 ? (
         <SearchMessage>Oooops🙈</SearchMessage>
       ) : (
-        expenses.map(({ name, cost, id }: Expenses) => {
+        searchExpenses.map(({ name, cost, id }: IExpense) => {
           return <ExpensesItem name={name} cost={cost} id={id} />;
         })
       )}

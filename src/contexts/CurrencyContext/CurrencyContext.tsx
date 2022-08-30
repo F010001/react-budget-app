@@ -1,5 +1,5 @@
 import { createContext, FC, ReactNode, useState } from "react";
-import { ICurrencyContext } from ".";
+import { ICurrencyContext } from "./types";
 import { Currency } from "../../config";
 
 export const CurrencyContext = createContext<ICurrencyContext>(

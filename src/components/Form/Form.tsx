@@ -4,11 +4,11 @@ import { AttentionMassage, Input, StyledForm } from "./styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useContext } from "react";
 import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
-import { SubmitValue } from ".";
+import { SubmitValue } from "./types";
 import { v4 as uuids4 } from "uuid";
 
 export const Form = () => {
-  const { setExpenses } = useContext(ExpensesContext);
+  const { setExpense } = useContext(ExpensesContext);
   const {
     handleSubmit,
     reset,
@@ -22,7 +22,7 @@ export const Form = () => {
       id: uuids4(),
     };
 
-    setExpenses(newExpense);
+    setExpense(newExpense);
     reset();
   };
 

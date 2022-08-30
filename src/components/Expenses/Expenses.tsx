@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Expenses } from "../../contexts/ExpensesContext";
+import { IExpense } from "../../contexts/ExpensesContext/types";
 import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useInput } from "../../hooks/useInput";
@@ -10,25 +10,26 @@ import { StyledExpenses } from "./styles";
 
 export const ExpensesBlock = () => {
   const { expenses } = useContext(ExpensesContext);
-  const [effectValues, setEffectValues] = useState<Expenses[]>(expenses);
+  const [filteredExpenses, setFilteredExpenses] =
+    useState<IExpense[]>(expenses);
   const search = useInput();
-  const debounceValue = useDebounce(search.value, 2000);
+  const debounceValue = useDebounce(search.value, 1000);
 
   useEffect((): void => {
     debounceValue
-      ? setEffectValues(
+      ? setFilteredExpenses(
           expenses.filter((expense) =>
             expense.name.toLowerCase().includes(debounceValue.toLowerCase())
           )
         )
-      : setEffectValues(expenses);
+      : setFilteredExpenses(expenses);
   }, [debounceValue, expenses]);
 
   return (
     <StyledExpenses>
       <Title>Expenses</Title>
       <SearchInput {...search} />
-      <ExpensesList searchExpenses={effectValues} />
+      <ExpensesList searchExpenses={filteredExpenses} />
     </StyledExpenses>
   );
 };

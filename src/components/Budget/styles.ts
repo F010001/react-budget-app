@@ -18,7 +18,7 @@ export const StyledBudget = styled.div`
   padding: 0 20px;
 `;
 
-export const EditButton = styled.button`
+export const Button = styled.button`
   border-radius: 10px;
   padding: 10px 30px;
   font-family: Inter;
@@ -31,18 +31,6 @@ export const EditButton = styled.button`
   width: 85px;
 `;
 
-export const SaveButton = styled.button`
-  border-radius: 10px;
-  padding: 10px 30px;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-  border: none;
-  width: 85px;
-`;
 
 export const Input = styled.input`
   max-width: 153px;

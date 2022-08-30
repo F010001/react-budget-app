@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
 }
 
 body,
@@ -32,7 +33,8 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.5;   
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif, Roboto;
 }
 
 a:not([class]) {
