@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Select, { SingleValue } from "react-select";
 import { IOption } from "./types";
 import { Currency } from "../../config";
-import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
+import { CurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 
 export const options: IOption[] = [
   { value: Currency.USD, label: "USD" },

@@ -31,7 +31,6 @@ export const Button = styled.button`
   width: 85px;
 `;
 
-
 export const Input = styled.input`
   max-width: 153px;
   &::-webkit-outer-spin-button,
@@ -57,3 +56,5 @@ export const Input = styled.input`
     color: ${Color.White};
   }
 `;
+
+export const Title = styled.span``;

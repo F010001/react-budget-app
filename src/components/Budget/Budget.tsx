@@ -1,38 +1,47 @@
 import React, { useContext } from "react";
-import { BudgetContext } from "../../contexts/BudgetContext/BudgetContext";
-import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
+import { BudgetContext } from "../../context/BudgetContext/BudgetContext";
+import { CurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { useInput } from "../../hooks/useInput";
 import { useToggle } from "../../hooks/useToggle";
-import { Button, Input } from "./styles";
+import { Button, Input, Title } from "./styles";
 import { StyledBudget } from "./styles";
 
 export const Budget = () => {
-  const inputBudget = useInput();
+  const { value, onChange, setValue } = useInput();
   const [isToggleMode, setIsToggleMode] = useToggle(true);
   const { budget, setBudget } = useContext(BudgetContext);
   const { currency } = useContext(CurrencyContext);
 
-  const handleEditClick = () => {
+  const handleEdit = () => {
     setIsToggleMode();
   };
 
-  const handleSaveClick = () => {
-    setBudget(+inputBudget.value);
+  const handleSave = () => {
+    setBudget(+value);
     setIsToggleMode();
+    setValue("");
   };
 
   return (
     <StyledBudget>
       {isToggleMode ? (
-        `Budget: ${currency}${budget}`
+        <>
+          <Title>
+            Budget: {currency}
+            {budget}
+          </Title>
+          <Button onClick={handleEdit}>Edit</Button>
+        </>
       ) : (
-        <Input {...inputBudget} type="number" placeholder="Enter  budget ..." />
-      )}
-
-      {isToggleMode ? (
-        <Button onClick={handleEditClick}>Edit</Button>
-      ) : (
-        <Button onClick={handleSaveClick}>Save</Button>
+        <>
+          <Input
+            onChange={onChange}
+            value={value}
+            type="number"
+            placeholder="Enter  budget ..."
+          />
+          <Button onClick={handleSave}>Save</Button>
+        </>
       )}
     </StyledBudget>
   );

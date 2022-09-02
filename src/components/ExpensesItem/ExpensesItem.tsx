@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { ExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { Badge } from "../Badge/Badge";
 import { DeleteButton, StyledExpensesItem } from "./styles";
 

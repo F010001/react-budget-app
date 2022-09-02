@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { IExpense } from "../../contexts/ExpensesContext/types";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { IExpense } from "../../context/ExpensesContext/types";
+import { ExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useInput } from "../../hooks/useInput";
 import { ExpensesList } from "../ExpensesList/ExpensesList";

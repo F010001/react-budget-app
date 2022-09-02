@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
+import { CurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { StyledBadge } from "./styles";
 
 interface IProps {

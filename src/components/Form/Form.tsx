@@ -3,7 +3,7 @@ import { Title } from "../Title/Title";
 import { AttentionMassage, Input, StyledForm } from "./styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useContext } from "react";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { ExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { SubmitValue } from "./types";
 import { v4 as uuids4 } from "uuid";
 

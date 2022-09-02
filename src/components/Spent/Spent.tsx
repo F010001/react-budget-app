@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
-import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
-import { IExpense } from "../../contexts/ExpensesContext/types";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { CurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
+import { ExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { StyledSpent } from "./styles";
 
 export const Spent = () => {
   const { currency } = useContext(CurrencyContext);
   const { expenses } = useContext(ExpensesContext);
 
-  const total = expenses
-    .map(({ cost }: IExpense) => cost)
-    .reduce((acc: number, cost) => acc + +cost, 0);
+  const total = expenses.reduce((acc, { cost }) => acc + +cost, 0);
 
   return (
     <StyledSpent>

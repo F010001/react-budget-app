@@ -4,6 +4,7 @@ import { Color } from "../../ui/Colors";
 export const Input = styled.input`
   max-width: 100%;
   height: 50px;
+  padding: 15px 20px;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

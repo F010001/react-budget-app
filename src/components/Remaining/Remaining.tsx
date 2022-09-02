@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { BudgetContext } from "../../contexts/BudgetContext/BudgetContext";
-import { CurrencyContext } from "../../contexts/CurrencyContext/CurrencyContext";
-import { ExpensesContext } from "../../contexts/ExpensesContext/ExpensesContext";
+import { BudgetContext } from "../../context/BudgetContext/BudgetContext";
+import { CurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
+import { ExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { StyledRemaining } from "./styles";
 
 export const Remaining = () => {
@@ -9,9 +9,7 @@ export const Remaining = () => {
   const { currency } = useContext(CurrencyContext);
   const { expenses } = useContext(ExpensesContext);
 
-  const total = expenses
-    .map(({ cost }) => cost)
-    .reduce((acc: number, cost: number) => acc + +cost, 0);
+  const total = expenses.reduce((total, { cost }) => total + cost, 0);
 
   const overspending = +budget - total >= 0;
   return (

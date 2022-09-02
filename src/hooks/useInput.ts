@@ -10,5 +10,6 @@ export const useInput = (initialState: string = "") => {
   return {
     value,
     onChange,
+    setValue,
   };
 };

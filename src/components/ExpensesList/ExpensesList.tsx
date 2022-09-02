@@ -1,4 +1,4 @@
-import { IExpense } from "../../contexts/ExpensesContext/types";
+import { IExpense } from "../../context/ExpensesContext/types";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
 import { SearchMessage, StyledExpensesList } from "./styles";
 
